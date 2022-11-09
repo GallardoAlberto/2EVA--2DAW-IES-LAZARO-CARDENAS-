@@ -32,6 +32,25 @@ console.log("El mayor es " + mayor);
 
 // Visualiza el array ordenado de menor a mayor FALTA.
 
+let aux;
+
+console.log("---------TABLA ORDENADA----------");
+
+for (let i = 0; i < tabla.length; i++) {
+    for (let j = 0; j < tabla.length; j++) {
+        if(tabla[j]>tabla[j+1]){
+            //guardamos el numero mayor en el auxiliar
+            aux=tabla[j];
+            //guardamos el numero menor en el lugar correspondiente
+            tabla[j]=tabla[j+1];
+            //asignamos el auxiliar en el lugar correspondiente
+            tabla[j+1]=aux;
+
+       }
+    }    
+}
+
+console.table(tabla);
 
 // Visualiza la media.
 

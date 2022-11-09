@@ -28,7 +28,7 @@ alert("Número de alumnos matriculados: " + (arrayAlumnos.length - 1));
 let numero = prompt("Número de alumno: ");
 
 // El número deberá estar entre 1 y el número de alumnos introducidos
-while(numero > arrayAlumnos.length || numero < 1){
+while(numero > arrayAlumnos.length - 1 || numero < 1){
     numero = prompt("Introduce un número valido(MAXIMO EL NUMERO DE MATRICULADOS)");
 }
 
@@ -42,7 +42,7 @@ while(confirm("¿Desea continuar consultando nombres de alumnos?") != false){
 
     numero = prompt("Número de alumno: ");
 
-    while(numero > arrayAlumnos.length || numero < 1){
+    while(numero > arrayAlumnos.length - 1 || numero < 1){
         numero = prompt("Introduce un número valido(MAXIMO EL NUMERO DE MATRICULADOS)");
     }
 
@@ -54,13 +54,12 @@ while(confirm("¿Desea continuar consultando nombres de alumnos?") != false){
 
 let baja = prompt("Número de alumno que quiere dar de baja: ");
 
-alert("El alumno " + baja + " que es: " + arrayAlumnos[baja] + ", dado de baja");
-
 // El número deberá estar entre 1 y el número de alumnos introducidos.
 
-while(baja > arrayAlumnos.length || baja < 1){
+while(baja > arrayAlumnos.length - 1 || baja < 1){
     baja = prompt("Introduce un número valido(MAXIMO EL NUMERO DE MATRICULADOS)");
 }
+alert("El alumno " + baja + " que es: " + arrayAlumnos[baja] + ", dado de baja");
 
 arrayAlumnos[baja] = null;
 
@@ -72,8 +71,11 @@ while(confirm("¿Desea continuar dando de baja?") != false){
 
     baja = prompt("Número de alumno que quiere dar de baja: ");
 
-    while(baja > arrayAlumnos.length || baja < 1 || arrayAlumnos[baja] == null){
-        baja = prompt("Introduce un número valido(MAXIMO EL baja DE MATRICULADOS)");
+    while(baja > arrayAlumnos.length - 1 || baja < 1){
+        baja = prompt("Introduce un número valido(MAXIMO EL NUMERO DE MATRICULADOS)");
+        while(arrayAlumnos[baja] == null){
+            baja = prompt("Este usuario ya ha sido dado de baja, introduce otro número)");
+        }
     }
 
     alert("El alumno " + baja + " que es: " + arrayAlumnos[baja] + ", dado de baja");
@@ -96,8 +98,24 @@ alert("Las matrículadas dadas de baja son: " + cadena);
 // no definidos. Repite esta acción tres veces, empleando cada una de las tres
 // estructuras for conocidas para recorrer .
 
+document.write(`<h1>FOR</h1>`);
+for (let i = 0; i < arrayAlumnos.length; i++) {
+    if(arrayAlumnos[i] != null){
+        document.write(`<p>- ${arrayAlumnos[i]}</p>`);
+    }
+}
+
+document.write(`<h1>FOR-OF</h1>`);
+for (let valor of arrayAlumnos) {
+    if(valor != null || valor != undefined){
+        document.write(`<p>- ${valor}</p>`);
+    }
+}
+
+
+document.write(`<h1>FOR-IN</h1>`)
 for (const valor in arrayAlumnos) {
     if(arrayAlumnos[valor] != null){
-        console.log(arrayAlumnos[valor]);
+        document.write(`<p>- ${arrayAlumnos[valor]}</p>`);
     }
 }
