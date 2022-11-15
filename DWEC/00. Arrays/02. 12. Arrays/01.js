@@ -1,6 +1,4 @@
-// Se desea guardar en un array de objetos los datos de unos alumnos que se van pidiendo
-// mediante prompt, hasta que se pulse cancel al solicitar la matrícula.
-
+let alumnos2DAW = new Array();
 let alumnos = [];
 let notas = [];
 let matriculas = new Array();
@@ -61,6 +59,10 @@ do{
             curso = prompt("Ese curso no existe, por favor introduce 1º o 2º");
         }
 
+        if(ciclo == "DAW" && curso == "2"){
+            alumnos2DAW.push(nombre + " " + apellidos);
+        }
+
     }else{
         break;
     }
@@ -82,23 +84,39 @@ do{
             dws = Number(prompt("Nota de DWS"));
             eie = Number(prompt("Nota de EIE"));
             ing = Number(prompt("Nota de ING"));
+
+            let modulos = {
+                DIW : diw,
+                DWEC : dwec,
+                DDA : dda,
+                DWS : dws,
+                EIE : eie,
+                ING : ing
+            }
+
+            notas.push(modulos);
         }
 
-    let modulos = {
-        DIW : diw,
-        DWEC : dwec,
-        DDA : dda,
-        DWS : dws,
-        EIE : eie,
-        ING : ing
-    }
+    
 
     alumnos.push(alumno);
-    notas.push(modulos);
 
     matricula = prompt("Si quieres introducir otro alumno, introduce otra matrícula: ");
+
+    while(matriculas.includes(matricula)){
+        matricula = prompt("Esta matricula ya existe, prueba otra. ");
+    }
+
+    matriculas.push(matricula);
 
 }while(matricula != null);
 
 console.table(alumnos);
 console.table(notas);
+console.table(alumnos2DAW);
+
+alert("Notas de 2DAW");
+
+notas.forEach(valor => {
+    alert(notas[valor]);
+});
