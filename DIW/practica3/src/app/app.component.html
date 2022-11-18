@@ -1,21 +1,27 @@
 <h1>Salario</h1>
-<h1>Nombre: </h1>
-<h1>Edad: </h1>
-<h1>Salario: 1500</h1>
+<h2>Nombre: {{nombre.value}}</h2>
+<h2>Edad: {{edad.value}}</h2>
+<h2>Salario: {{salario}}</h2>
 
-<label>Introduce nombre:</label>
-<br>
-<input type="text"><button>Cambiar nombre</button>
-<br>
-<label>Introduce edad:</label>
-<br>
-<input type="text"><button>Cambiar edad</button>
-<br><br><br>
-<label>Introduce salario: </label>
-<input type="number">
-<br><br>
-<button>Subir sueldo 5%</button>
-<br><br>
-<label>Introduce incremento: </label>
-<input type="number">
-<button>Subir Sueldo</button>
+<div>
+    <label>Introduce nombre:</label>
+    <input type="text" #nombre><button (click)="nombre.value">Cambiar nombre</button>    
+</div>
+
+<div>
+    <label>Introduce edad:</label>
+    <input type="text" #edad><button (click)="edad.value">Cambiar edad</button>
+</div>
+
+<div>
+    <label>Introduce salario: </label>
+    <input type="number" [(ngModel)]="salario">
+    <button (click)="masSueldo()">Subir sueldo 5%</button>
+</div>
+
+<div>
+    <label>Introduce incremento: </label>
+    <input type="number" #incremento>
+    <button (click)="mayorSueldo(incremento.value)">Subir Sueldo</button>
+</div>
+

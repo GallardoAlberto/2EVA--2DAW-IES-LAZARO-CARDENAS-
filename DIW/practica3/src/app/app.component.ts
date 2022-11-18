@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'practica3';
+
+  salario = 1500;
+
+  masSueldo() {
+      return this.salario = Number((this.salario * 1.05).toFixed(2));
+  }
+
+  mayorSueldo(incremento : String){
+      return this.salario = this.salario + Number(incremento);
+  }
 }

@@ -1,3 +1,4 @@
+
 let alumnos2DAW = new Array();
 let alumnos = [];
 let notas = [];
@@ -13,6 +14,8 @@ matriculas.push(matricula);
 let repetida;
 
 let cursos = ["DAM", "DAW", "ASIR"];
+let diw, dwec, dda, dws, eie, ing;
+let modulos = new Array();
 
 do{
 
@@ -20,10 +23,11 @@ do{
     console.log(repetida);
 
     while(!/^[A-Z]{1}[0-9]{3}$/.test(matricula)){
-        matricula = prompt("Código de matrícula no válida, inserte una matrícula correcta.");
         if(matricula == null){
             break;
         }
+        matricula = prompt("Código de matrícula no válida, inserte una matrícula correcta.");
+        
     }
 
     while(repetida != true){
@@ -75,7 +79,6 @@ do{
         curso : curso
     }
 
-    let diw, dwec, dda, dws, eie, ing;
 
         if(ciclo == "DAW" && curso == "2"){
             diw = Number(prompt("Nota de DAW"));
@@ -85,7 +88,7 @@ do{
             eie = Number(prompt("Nota de EIE"));
             ing = Number(prompt("Nota de ING"));
 
-            let modulos = {
+            modulos = {
                 DIW : diw,
                 DWEC : dwec,
                 DDA : dda,
@@ -96,7 +99,6 @@ do{
 
             notas.push(modulos);
         }
-
     
 
     alumnos.push(alumno);
@@ -105,18 +107,34 @@ do{
 
     while(matriculas.includes(matricula)){
         matricula = prompt("Esta matricula ya existe, prueba otra. ");
+        while(!/^[A-Z]{1}[0-9]{3}$/.test(matricula)){
+            if(matricula == null){
+                break;
+            }
+            matricula = prompt("Código de matrícula no válida, inserte una matrícula correcta.");
+            if(!matriculas.includes(matricula)){
+                matriculas.push(matricula);
+            }
+        }
     }
 
-    matriculas.push(matricula);
 
 }while(matricula != null);
 
 console.table(alumnos);
 console.table(notas);
 console.table(alumnos2DAW);
+console.table(notas);
 
-alert("Notas de 2DAW");
+for (let i = 0; i < notas.length; i++) {
+    alert(`BOLETIN DE NOTAS - - - ${alumnos2DAW[i]}
 
-notas.forEach(valor => {
-    alert(notas[valor]);
-});
+
+    DIW - ${notas[i].DIW}
+    DWEC - ${notas[i].DWEC}
+    DDA - ${notas[i].DDA}
+    DWS - ${notas[i].DWS}
+    EIE - ${notas[i].EIE}
+    ING - ${notas[i].ING}`);
+    
+}
