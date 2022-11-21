@@ -17,4 +17,8 @@ export class AppComponent {
   mayorSueldo(incremento : String){
       return this.salario = this.salario + Number(incremento);
   }
+
+  setColor() {
+    return this.salario <= 1500 ? this.salario > 1500 && this.salario < 3000 ? this.salario >= 3000 ? 'black' : 'blue' : 'green';
+  }
 }
