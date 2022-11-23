@@ -18,7 +18,13 @@ export class AppComponent {
       return this.salario = this.salario + Number(incremento);
   }
 
-  setColor() {
-    return this.salario <= 1500 ? this.salario > 1500 && this.salario < 3000 ? this.salario >= 3000 ? 'black' : 'blue' : 'green';
+  setColor(salario : Number) {
+    if(salario > 1500 && salario < 3000){
+      return 'blue';
+    }else if(salario >= 3000){
+      return 'green'
+    }else{
+      return 'black';
+    }
   }
 }

@@ -15,7 +15,7 @@
 
 <div>
     <label>Introduce salario: </label>
-    <input type="number" [(ngModel)]="salario" [ngStyle]="{color:setColor()}">{{salario}}>
+    <input type="number" [(ngModel)]="salario" [ngStyle]="{color:setColor(salario)}">{{salario}}>
     <button (click)="masSueldo()">Subir sueldo 5%</button>
 </div>
 
