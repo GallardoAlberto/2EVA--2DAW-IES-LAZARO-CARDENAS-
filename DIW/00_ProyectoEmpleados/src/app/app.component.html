@@ -1,19 +1,25 @@
-<h1><i>Alta de empleados</i></h1>
-<br><br><br><br>
-<div>
-  <label>Nombre: </label>
-  <input type="text" placeholder="nombre">
-  <br>
-  <label>Apellido: </label>
-  <input type="text" placeholder="apellido">
-  <br>
-  <label>Cargo: </label>
-  <input type="text" placeholder="cargo">
-  <br>
-  <label>Salario: </label>
-  <input type="number" placeholder="0">
-  <br>
+<div class="datos">
+  <h1><i>Alta de empleados</i></h1>
+  <br><br><br><br>
+  <div>
+    <p>Nombre: </p>
+    <input type="text" placeholder="nombre" #nombre>
+    
+    <p>Apellido: </p>
+    <input type="text" placeholder="apellido" #apellido>
+    
+    <p>Cargo: </p>
+    <input type="text" placeholder="cargo" #cargo>
+    
+    <p>Salario: </p>
+    <input type="number" placeholder="{{salario}}" #salario>
+    
+  </div>
+  <input class="agregar" type="submit" value="Agregar">
+
+  <div class="empleados">
+    <p>1 {{mariaBeltran.nombre}} {{mariaBeltran.apellido}} {{mariaBeltran.salario}} {{mariaBeltran.cargo}}</p>
+    <p>2 {{martaGonzalez.nombre}} {{martaGonzalez.apellido}} {{martaGonzalez.salario}} {{martaGonzalez.cargo}}</p>
+    <p>3 {{pedroPerez.nombre}} {{pedroPerez.apellido}} {{pedroPerez.salario}} {{pedroPerez.cargo}}</p>
+  </div>
 </div>
-
-<input type="submit" value="Agregar">
-
