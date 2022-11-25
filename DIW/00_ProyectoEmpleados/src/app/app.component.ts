@@ -22,6 +22,5 @@ export class AppComponent {
     let newEmpleado = new Empleado(nombre, apellido, cargo, salario);
     this.empleados.push(newEmpleado);
   }
-
   
 }

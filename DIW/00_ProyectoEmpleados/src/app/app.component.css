@@ -29,6 +29,7 @@ input{
     width: 90%;
 }
 .agregar{
+    border-radius: 7px;
     border-style: none;
     width: 70px;
     display: block;
