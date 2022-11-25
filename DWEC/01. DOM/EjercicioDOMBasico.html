@@ -19,22 +19,26 @@ window.onload = function() {
 
     console.log(enlaces[5].href);
     
-	// Numero de enlaces que apuntan a http://prueba
+	// Numero de enlaces que apuntan a http://prueba/
 
     let cont = 0;
-    for (const i in enlaces) {
-        if (enlaces[i].href){
+    for (let i = 0; i < enlaces.length; i++) {
+        if(enlaces[i].href == 'http://prueba/'){
             cont++;
         }
+        
     }
+    console.log(cont);
+    
 
 	// Numero de enlaces del tercer párrafo
 
     let contEnlaces = 0;
     let parrafos = document.getElementsByTagName('p');           
     let tercerParrafo = parrafos[2];
+    let enlacesTercerParrafo = tercerParrafo.getElementsByTagName('a');
 
-    console.log(contEnlaces);
+    console.log(enlacesTercerParrafo);
 
 }
 </script>

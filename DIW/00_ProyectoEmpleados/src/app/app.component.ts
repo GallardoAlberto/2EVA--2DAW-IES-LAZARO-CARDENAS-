@@ -11,15 +11,17 @@ export class AppComponent {
 
   salario = 0;
   cont = 3;
+
+  mariaBeltran = new Empleado("María", "Beltrán", "Directora", "3000");
+  martaGonzalez = new Empleado("Marta", "González", "Coordinadora", "2000");
+  pedroPerez = new Empleado("Pedro", "Pérez", "Botones","1500"); 
+
+  empleados : Array<Empleado> = new Array(this.mariaBeltran,this.martaGonzalez,this.pedroPerez);
   
-  empleados = [];
-
-  mariaBeltran = new Empleado("María", "Beltrán", "Directora", 3000);
-  martaGonzalez = new Empleado("Marta", "González", "Coordinadora", 2000);
-  pedroPerez = new Empleado("Pedro", "Pérez", "Botones", 1500);
-
-  crearEmpleado(nombre : string, apellido : string, cargo : string, salario : number) {
-    return new Empleado(nombre, apellido, cargo, salario);
+  crearEmpleado(nombre : string, apellido : string, cargo : string, salario : string) {
+    let newEmpleado = new Empleado(nombre, apellido, cargo, salario);
+    this.empleados.push(newEmpleado);
   }
 
+  
 }

@@ -12,15 +12,12 @@
     <input type="text" placeholder="cargo" #cargo>
     
     <p>Salario: </p>
-    <input type="number" placeholder="0" #salario>
+    <input type="number" placeholder=0 #salario>
     
   </div>
-  <input class="agregar" type="submit" value="Agregar">
+  <input class="agregar" type="submit" value="Agregar" (click)="crearEmpleado(nombre.value, apellido.value, cargo.value, salario.value)">
 
-  <div class="empleados" *ngFor="let empleado of empleados">
-    <p>1 {{mariaBeltran.nombre}} {{mariaBeltran.apellido}} {{mariaBeltran.salario}} {{mariaBeltran.cargo}}</p>
-    <p>2 {{martaGonzalez.nombre}} {{martaGonzalez.apellido}} {{martaGonzalez.salario}} {{martaGonzalez.cargo}}</p>
-    <p>3 {{pedroPerez.nombre}} {{pedroPerez.apellido}} {{pedroPerez.salario}} {{pedroPerez.cargo}}</p>
-    <p>{{empleados}}</p>
+  <div class="empleados">
+    <p *ngFor="let empleado of empleados; let i = index;">{{i+1}} {{empleados[i].nombre}} {{empleados[i].apellido}} {{empleados[i].cargo}} {{empleados[i].salario}}</p>
   </div>
 </div>
