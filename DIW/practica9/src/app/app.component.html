@@ -1,7 +1,7 @@
 <p>Nota: {{nota}} </p>
-<p *ngIf="nota > 4; else suspenso">Has aprobado</p>
+<p *ngIf="nota > 4; else suspenso" [ngClass]=" { aprobado : aprobado == 'Has aprobado' }">{{aprobado}}</p>
 <ng-template #suspenso>
-  <p>Has suspendido</p>
+  <p [ngClass]=" { suspen }">{{suspen}}</p>
 </ng-template>
 <p *ngIf="nota <= 4">
   Insuficiente

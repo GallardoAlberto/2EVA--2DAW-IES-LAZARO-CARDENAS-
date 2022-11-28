@@ -1,0 +1,46 @@
+.container{
+    padding: 50px;
+}
+.tartas{
+    border: 5px solid rgb(255, 223, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    width: 300px;
+    background-color: rgb(255, 247, 254);
+    padding: 50px 20px ;
+}
+.tartas input, select{
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+}
+.lista{
+    position: absolute;
+    width: 1000px;
+    top: 70%;
+    left: 25%;
+    color: white;
+    background-color: blueviolet;
+}
+.lista td,tr{
+    text-align: center;
+    width: 600px;
+    padding: 20px;
+}
+.agregarA{
+    color: white;
+    cursor: pointer;
+    width: 80px;
+    padding: 10px;
+    background-color: rgb(88, 88, 219);
+}
+.agregarD{
+    color: white;
+    cursor: pointer;
+    width: 80px;
+    padding: 10px;
+    background-color: rgb(95, 95, 95);
+}

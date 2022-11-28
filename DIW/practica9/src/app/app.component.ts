@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'practica9';
 
   nota : number = 5;
+  aprobado = "Has aprobado";
+  suspen = "Has suspendido";
 
   menos1(){
     if(this.nota < 1){

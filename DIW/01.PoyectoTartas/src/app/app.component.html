@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="tartas">
+    <label>Nombre</label>
+    <input type="text" #nombre>
+    <br>
+    <label>Sabor</label>
+    <input type="text" #sabor>
+    <br>
+    <label>Intolerancia</label>
+    <select #intolerancia>
+      <option>Gluten</option>
+      <option>Vegano</option>
+      <option>Huevo</option>
+      <option>Lactosa</option>
+      <option>Dieta</option>
+    </select>
+    <br>
+    <label>cal/U</label>
+    <input type="number" #caloriasRacion>
+    <br>
+    <label>Precio</label>
+    <input type="number" #precio>
+    <br>
+    <label>Número de porciones</label>
+    <input type="number" #numPorciones>
+    <br>
+    
+    <input type="submit" value="Agregar" class="agregarD" (click)="nuevaTarta(nombre.value, sabor.value, intolerancia.value, caloriasRacion.value, precio.value, numPorciones.value)" *ngIf="tartas.length == 0; else activado">
+    <ng-template #activado>
+      <input type="submit" value="Agregar" class="agregarA" (click)="nuevaTarta(nombre.value, sabor.value, intolerancia.value, caloriasRacion.value, precio.value, numPorciones.value)">
+      <input type="submit" value="Consultar" >
+      <div class="lista">
+        <table>
+          <tr>
+            <td>Nombre</td>
+            <td>Sabor</td>
+            <td>Intolerancia</td>
+            <td>Cal/U</td>
+            <td>Precio</td>
+            <td>Número de porciones</td>
+          </tr>
+          <tr *ngFor="let tarta of tartas; let i=index">
+            <td>{{tartas[i].nombre}}</td>
+            <td>{{tartas[i].sabor}}</td>
+            <td>{{tartas[i].intolerancia}}</td>
+            <td>{{tartas[i].caloriasRacion}}</td>
+            <td>{{tartas[i].precio}}</td>
+            <td>{{tartas[i].numPorciones}}</td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </div>
+
+  
+</div>
