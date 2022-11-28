@@ -5,13 +5,21 @@
     font-family: 'Roboto', sans-serif;
     /* border-style: solid; */
 }
+.container{
+    height: 100vh;
+    background-attachment: fixed;
+    background: url("../assets/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+}
 h1{
     color: #a02c29;
     padding: 7px 20px;
 }
 .datos{
     width: 500px;
-    margin: 0 auto;
+    margin: 0px auto;
     box-shadow: 3px 3px 0px 1px #a02c29;
     border: 2px solid #a02c29;
     background-color: #fee4c3;
@@ -44,7 +52,7 @@ input{
     padding: 5px;
     color: black;
 }
-.director{
+.director, .directora{
     color: red;
 }
 .botones{

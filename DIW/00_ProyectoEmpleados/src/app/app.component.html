@@ -1,36 +1,49 @@
-<div class="datos">
-  <h1><i>Alta de empleados</i></h1>
-  <br /><br /><br /><br />
-  <div>
-    <p>Nombre:</p>
-    <input type="text" placeholder="nombre" #nombre />
-
-    <p>Apellido:</p>
-    <input type="text" placeholder="apellido" #apellido />
-
-    <p>Cargo:</p>
-    <input type="text" placeholder="cargo" #cargo/>
-
-    <p>Salario:</p>
-    <input type="number" placeholder="0" #salario />
-  </div>
-  <input
-    class="agregar"
-    type="submit"
-    value="Agregar"
-    (click)="
-      crearEmpleado(nombre.value, apellido.value, cargo.value, salario.value)
-    "
-  />
-
-  <div class="empleados" *ngFor="let empleado of empleados; let i = index">
-    <p [ngStyle]="{ color: !((i + 1) % 2) ? 'blue' : 'black' }">
-      {{ i + 1 }} {{ empleados[i].nombre }} {{ empleados[i].apellido }}
-      {{ empleados[i].salario }}
-      <span [ngClass]="{ director: empleado.cargo == 'Directora' , botones: empleado.cargo == 'Botones' }"
-      >{{ empleados[i].cargo }}
-    </span>
-    </p>
-
+<div class="container">
+  <div class="datos">
+    <h1><i>Alta de empleados</i></h1>
+    <br /><br /><br /><br />
+    <div>
+      <p>Nombre:</p>
+      <input type="text" placeholder="nombre" #nombre />
+  
+      <p>Apellido:</p>
+      <input type="text" placeholder="apellido" #apellido />
+  
+      <p>Cargo:</p>
+      <input type="text" placeholder="cargo" #cargo/>
+  
+      <p>Salario:</p>
+      <input type="number" placeholder="0" #salario />
+    </div>
+    <input
+      class="agregar"
+      type="submit"
+      value="Agregar"
+      (click)="
+        crearEmpleado(nombre.value, apellido.value, cargo.value, salario.value)
+      "
+    />
+    
+  
+    <div class="empleados" *ngFor="let empleado of empleados; let i = index">
+      <p [ngStyle]="{ color: !((i + 1) % 2) ? 'blue' : 'black' }" *ngIf="i % 5 != 0 || i == 0;else linea">
+        {{ i + 1 }} {{ empleados[i].nombre }} {{ empleados[i].apellido }}
+        {{ empleados[i].salario }}
+        <span [ngClass]="{ directora: empleado.cargo == 'Directora', director: empleado.cargo == 'Director', botones: empleado.cargo == 'Botones' }"
+        >{{ empleados[i].cargo }}
+      </span>
+      </p>
+      <ng-template #linea>
+        <hr>
+        <p [ngStyle]="{ color: !((i + 1) % 2) ? 'blue' : 'black' }">
+          {{ i + 1 }} {{ empleados[i].nombre }} {{ empleados[i].apellido }}
+          {{ empleados[i].salario }}
+          <span [ngClass]="{ directora: empleado.cargo == 'Directora', director: empleado.cargo == 'Director', botones: empleado.cargo == 'Botones' }"
+          >{{ empleados[i].cargo }}
+        </span>
+        </p>
+      </ng-template>
+    </div>
   </div>
 </div>
+
