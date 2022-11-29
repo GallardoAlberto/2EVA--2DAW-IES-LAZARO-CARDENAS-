@@ -34,42 +34,102 @@
   <div class="container--intolerancia" *ngIf="tartas.length != 0">
     <p>¿Tienes alguna intolerancia?</p>
     <select #intolerancia>
+      <option value="-">Ninguna</option>
       <option value="Gluten">Gluten</option>
       <option value="Vegano">Vegano</option>
       <option value="Huevo">Huevo</option>
       <option value="Lactosa">Lactosa</option>
       <option value="Dieta">Dieta</option>
     </select>
-    <button #filtro>Filtrar</button>
+    <button (click)="filtrarPor(intolerancia.value)">Filtrar</button>
+
+    <div class="container--dieta" *ngIf="filtrarPor(intolerancia.value) == 'Dieta'">
+      <p>Introduce el máximo de Cal/U</p>
+      <input type="number" [(ngModel)]="cal">
+    </div>
+
+    <div class="container--carta">
+      <table class="container--carta--tabla" *ngIf="tartas.length != 0">
+        <tr>
+          <td>Nombre</td>
+          <td>Sabor</td>
+          <td>Intolerancia</td>
+          <td>Cal/U</td>
+          <td>Precio</td>
+          <td>Número de porciones</td>
+        </tr>
+        <tbody *ngFor="let tarta of tartas; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == '-'">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
+        <tbody *ngFor="let tarta of gluten; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == 'Gluten'">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
+
+        <tbody *ngFor="let tarta of vegano; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == 'Vegano'">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
+
+        <tbody *ngFor="let tarta of huevo; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == 'Huevo'">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
+
+        <tbody *ngFor="let tarta of lactosa; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == 'Lactosa'">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
+
+        <tbody *ngFor="let tarta of dieta; let i=index">
+          <tr *ngIf="filtrarPor(intolerancia.value) == 'Dieta' && tarta.caloriasRacion <= cal">
+            <td>{{tarta.nombre}}</td>
+            <td>{{tarta.sabor}}</td>
+            <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
+            <td>{{tarta.caloriasRacion}}</td>
+            <td>{{tarta.precio}}</td>
+            <td>{{tarta.numPorciones}}</td>
+          </tr>
+        </tbody>
 
 
-    
+      </table>
+    </div>
+
   </div>
 
   
 
-  <div class="container--carta">
-    <table class="container--carta--tabla">
-      <tr>
-        <td>Nombre</td>
-        <td>Sabor</td>
-        <td>Intolerancia</td>
-        <td>Cal/U</td>
-        <td>Precio</td>
-        <td>Número de porciones</td>
-      </tr>
-      <tbody *ngFor="let tarta of tartas; let i=index">
-        <tr>
-          <td>{{tarta.nombre}}</td>
-          <td>{{tarta.sabor}}</td>
-          <td [ngClass]="{ ninguna : tarta.intolerancia == '-' , gluten : tarta.intolerancia == 'Gluten' , vegano : tarta.intolerancia == 'Vegano' , huevo : tarta.intolerancia == 'Huevo' , lactosa : tarta.intolerancia == 'Lactosa' , dieta : tarta.intolerancia == 'Dieta' }">{{tarta.intolerancia}}</td>
-          <td>{{tarta.caloriasRacion}}</td>
-          <td>{{tarta.precio}}</td>
-          <td>{{tarta.numPorciones}}</td>
-        </tr>
-      </tbody>
-
-
-    </table>
-  </div>
+  
 </div>

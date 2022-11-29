@@ -16,3 +16,4 @@ function doble(numero) {
 function triple(numero) {
   return numero * 3;
 }
+
