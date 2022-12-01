@@ -45,7 +45,7 @@
 
     <div class="container--dieta" *ngIf="filtrarPor(intolerancia.value) == 'Dieta'">
       <p>Introduce el máximo de Cal/U</p>
-      <input type="number" [(ngModel)]="cal">
+      <input type="number" [(ngModel)]="cal" min="0">
     </div>
 
     <div class="container--carta">
