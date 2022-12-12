@@ -20,7 +20,7 @@ export class AppComponent {
   lista1 = false;
   lista2 = false;
 
-  ocultar(){
+  ocultar(valor : boolean){
     this.noMostrar = true;
   }
 
@@ -30,10 +30,4 @@ export class AppComponent {
     this.lista2 = false;
   }
 
-  todos(){
-    this.lista1 = true;
-  }
-  leidos(){
-    this.lista2 = true;
-  }
 }

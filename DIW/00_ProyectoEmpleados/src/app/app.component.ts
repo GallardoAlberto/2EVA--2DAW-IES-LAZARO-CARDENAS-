@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Empleado } from './modelos/empleado.modelo';
+import { EstiloPersonalizado2 } from './mis-estilos.directive';
 
 @Component({
   selector: 'app-root',
@@ -33,9 +34,5 @@ export class AppComponent {
     }
 
   }
-  
 
-
-  
-  
 }

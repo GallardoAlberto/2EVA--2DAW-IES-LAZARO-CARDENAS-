@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EjdirectivangswitchComponent } from './ejdirectivangswitch/ejdirectivangswitch.component';
-import { EstilosDirective } from './estilos.directive';
+import { EstilosDirectiveCeltics, EstilosDirectiveLakers, EstilosDirectiveBulls } from './estilos.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     EjdirectivangswitchComponent,
-    EstilosDirective
+    EstilosDirectiveLakers,
+    EstilosDirectiveCeltics,
+    EstilosDirectiveBulls
   ],
   imports: [
     BrowserModule

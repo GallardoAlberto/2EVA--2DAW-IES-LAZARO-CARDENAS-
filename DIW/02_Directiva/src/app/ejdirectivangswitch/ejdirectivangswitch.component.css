@@ -29,8 +29,8 @@ ul {
     margin-top: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0,
     0, 0.19);
-    }
-    .bulls {
+}
+.bulls {
     max-width: 600px;
     height: 120px;
     /* background-image: url("../../assets/ChicagoBulls.png"); */
@@ -43,7 +43,7 @@ ul {
     margin-top: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0,
     0, 0.19);
-    }
-    .equipo {
+}
+.equipo {
     color: #707070;
-    }
+}
