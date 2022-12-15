@@ -15,11 +15,14 @@ contenedor.addEventListener('mousedown', (event) =>{
     if(event.button == 0){
         contenedor.style.backgroundColor = 'red';
     }
+    if(event.button == 2){
+        contenedor.style.backgroundColor = 'blue';
+    }
 })
 
 // Al hacer click izquierdo
-contenedor.addEventListener('contextmenu', () => {
-    contenedor.style.backgroundColor = 'blue';
+contenedor.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
 
 })
 

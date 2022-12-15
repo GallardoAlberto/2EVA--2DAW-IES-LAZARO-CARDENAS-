@@ -17,11 +17,8 @@ document.addEventListener('keydown', function(event){
     
     if(keyAlt == true && keyF12 == true){
         h1.style.backgroundImage = 'url(https://source.unsplash.com/random)';
-    }else{
-        window.location.reload(true);
-
     }
 
-
 });
+
 
