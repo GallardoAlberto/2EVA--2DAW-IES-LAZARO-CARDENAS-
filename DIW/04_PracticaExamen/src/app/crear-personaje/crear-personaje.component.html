@@ -49,8 +49,9 @@
 
 
     <ng-template #mensaje>
-        <p [ngStyle]="{color : 'red', backgroundColor : 'black', textAlign : 'center'}">Empieza a escribir para que se muestre como quedaria el personaje</p>
+        <p [ngStyle]="{color : 'red', backgroundColor : 'black', textAlign : 'center', padding : '20px'}">Empieza a escribir para que se muestre como quedaria el personaje</p>
     </ng-template>
+
     <!-- ngFor
     Nos muestra la lista de los personajes que vamos agregando al 
     array creado anteriormente en un modelo, recorriendo el array creado.
@@ -63,7 +64,9 @@
             <option value="moro">Moro</option>
             <option value="planta">Planta</option>
         </select>
+
         <input type="button" (click)="filtro(filterType.value)" value="filtro">
+
         <div class="characterList">
             <h1>LISTA DE PERSONAJES</h1>
             <ul *ngFor="let personaje of personajes" [ngSwitch]="personaje.type">
