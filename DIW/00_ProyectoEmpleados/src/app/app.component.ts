@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Empleado } from './modelos/empleado.modelo';
 import { EstiloPersonalizado2 } from './mis-estilos.directive';
 
@@ -8,6 +8,7 @@ import { EstiloPersonalizado2 } from './mis-estilos.directive';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = '00_ProyectoEmpleados';
 
   salario = 0;

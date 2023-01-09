@@ -6,16 +6,12 @@
     /* border-style: solid; */
 }
 .container{
-    height: 100vh;
-    background-attachment: fixed;
-    background: url("../assets/fondo.jpg");
-    background-position: center;
-    background-size: cover;
-    padding: 50px;
+    padding: 20px 0;
 }
 h1{
     color: #a02c29;
     padding: 7px 20px;
+    font-size: 25px;
 }
 .datos{
     width: 500px;
@@ -57,4 +53,19 @@ input{
 }
 .botones{
     color: green;
+}
+
+.datos--empleado{
+    width: 500px;
+    margin: 0px auto;
+    box-shadow: 3px 3px 0px 1px #a02c29;
+    border: 2px solid #a02c29;
+    background-color: #fee4c3;
+}
+.datos--empleado p{
+    width: 90%;
+    margin: auto;
+    color: #d14108;
+    font-weight: bolder;
+    background-color: #deb887;
 }
